@@ -15,19 +15,18 @@ public class Shop {
 	
 	public void displayType(int type) {
 		
-		int num = 1;
+		int type_index = 1; // index of the specific type
 		switch(type) {
 		case 1:
 			
 			for(int i=0; i<vehicles.size(); i++) {
 				if(vehicles.get(i) instanceof Car) {
-					String vhc = num + ":    "+ vehicles.get(i).toString();
+					String vhc = type_index + ":    "+ vehicles.get(i).toString();
 					System.out.println(vhc);
-					num ++;
+					type_index ++;
 				}
-				
-				
 			}
+			System.out.println("\n");
 			
 			break;
 
@@ -36,37 +35,36 @@ public class Shop {
 			
 			for(int i=0; i<vehicles.size(); i++) {
 				if(vehicles.get(i) instanceof Truck) {
-					String vhc = num + vehicles.get(i).toString();
+					String vhc = type_index  + ":    "+  vehicles.get(i).toString();
 					System.out.println(vhc);
-					num ++;
+					type_index ++;
 				}		
 				
 				
 			}
-			
+			System.out.println("\n");
+
 			break;
 			
 		case 3:
 			
 			for(int i=0; i<vehicles.size(); i++) {
 				if(vehicles.get(i) instanceof Motorcycle) {
-					String vhc = num + vehicles.get(i).toString();
+					String vhc = type_index  + ":    "+  vehicles.get(i).toString();
 					System.out.println(vhc);
-					num ++;
+					type_index ++;
 				}
 				
 				
 			}
-			
+			System.out.println("\n");
+
 			break;
 
 		}
 		
 			}
-		
-		
-	
-	
+
 	public void addVehicle() {
 		
 		Scanner input = new Scanner(System.in);
@@ -152,15 +150,74 @@ public class Shop {
 		int vehicle_type = input.nextInt();
 		input.nextLine();
 		
+		int type_index = 0;
+
 		switch(vehicle_type) {
 		case 1:
 			
+			displayType(1);
+			
+			System.out.println("Choose the Car you want to delete: ");
+			int choice = input.nextInt();
+			
+			
+			for(int i=0; i<vehicles.size();i++) {
+				if(vehicles.get(i) instanceof Car) {
+					type_index ++;
+				}
+				if(type_index == choice) {
+					vehicles.remove(i);
+					break;
+				}
+			}
+			
+			break;
 			
 		case 2:
 			
+			
+			displayType(2);
+			
+			System.out.println("Choose the Truck you want to delete: ");
+			choice = input.nextInt();
+			
+			
+			for(int i=0; i<vehicles.size();i++) {
+				if(vehicles.get(i) instanceof Truck) {
+					type_index ++;
+				}
+				if(type_index == choice) {
+					vehicles.remove(i);
+					break;
+				}
+			}
+			
+			break;
+			
+			
 		case 3:
 			
-		default:
+			displayType(1);
+			
+			System.out.println("Choose the Car you want to delete: ");
+			choice = input.nextInt();
+			
+			
+			for(int i=0; i<vehicles.size();i++) {
+				if(vehicles.get(i) instanceof Car) {
+					type_index ++;
+				}
+				if(type_index == choice) {
+					vehicles.remove(i);
+					break;
+				}
+			}
+			
+			break;
+			
+			
+		default: 
+			System.out.println("invalid type");
 			
 		}
 	}
@@ -184,6 +241,14 @@ public class Shop {
 		for(int i = 0; i<6 ; i++ ) {
 			s.addVehicle(); 
 		}
+		
+		s.displayType(1);
+		s.displayType(2);
+		s.displayType(3);
+		
+		s.deleteVehicle();
+		s.deleteVehicle();
+		s.deleteVehicle();
 		
 		s.displayType(1);
 		s.displayType(2);
