@@ -13,8 +13,12 @@ public class Motorcycle extends Vehicle {
 		return super.toString() + " " + engine_capacity + ": MOTORCYCLE";
 	}
 	
-	public static int getMotorcycleCount() {
+	public static int getCount() {
 		return motorcycle_count;
+	}
+	
+	public static void setCount(int num) {
+		motorcycle_count = num;
 	}
 
 	public float getEngineCapacity() {

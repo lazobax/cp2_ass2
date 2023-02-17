@@ -10,6 +10,12 @@ public abstract class Vehicle {
 		brand_name = bn; date_of_make = dom ; color = col;
 	}
 	
+	public static int getCount(){
+		return -1;
+	}
+	
+	public static void setCount(int num){}
+	
 	public String toString() {
 		return brand_name + " " + date_of_make + " " + color;
 	}

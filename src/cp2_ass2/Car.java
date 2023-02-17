@@ -14,8 +14,12 @@ public class Car extends Vehicle {
 		return super.toString() + " " + car_type + " " + seat_number + ": CAR";
 	}
 	
-	public static int getCarCount() {
+	public static int getCount() {
 		return car_count;
+	}
+	
+	public static void setCount(int num) {
+		car_count = num;
 	}
 
 	public String getCarType() {

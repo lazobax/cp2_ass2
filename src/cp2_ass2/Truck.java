@@ -13,8 +13,12 @@ public class Truck extends Vehicle {
 		return super.toString() + " " + wheel_number + ": TRUCK";
 	}
 	
-	public static int getTruckCount() {
+	public static int getCount() {
 		return truck_count;
+	}
+	
+	public static void setCount(int num) {
+		truck_count = num;
 	}
 
 
